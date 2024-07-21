@@ -1,0 +1,94 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class DatabaseManagementSystem {
+    private static Map<String, String> database = new HashMap<>();
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println("Database Management System");
+            System.out.println("1. Add Record");
+            System.out.println("2. View Record");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    addRecord(scanner);
+                    break;
+                case 2:
+                    viewRecord(scanner);
+                    break;
+                case 3:
+                    System.out.println("Exiting program...");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+
+        } while (choice != 3);
+    }
+
+    public static void addRecord(Scanner scanner) {
+        System.out.print("Enter key: ");
+        String key = scanner.next();
+        System.out.print("Enter value: ");
+        String value = scanner.next();
+        database.put(key, value);
+        System.out.println("Record added successfully.");
+    }
+
+    public static void viewRecord(Scanner scanner) {
+        System.out.print("Enter key to view record: ");
+        String key = scanner.next();
+        if (database.containsKey(key)) {
+            System.out.println("Record: " + database.get(key));
+        } else {
+            System.out.println("Record not found.");
+        }
+    }
+}
+
+output:
+Database Management System
+
+1. Add Record
+
+2. View Record
+
+3. Exit
+
+Enter your choice: 1
+
+Enter key: 22
+
+Enter value: 1
+
+Record added successfully.
+
+Database Management System
+
+1. Add Record
+
+2. View Record
+
+3. Exit
+
+Enter your choice: 2
+
+Enter key to view record: 22
+
+Record: 1
+
+Database Management System
+
+1. Add Record
+
+2. View Record
+
+3. Exit
